@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+    <head th:fragment="head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+            <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+            <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+            <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+            <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+            <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+
+        
+        
+        
+        
+        
+        
+        <header th:fragment="header" class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <!-- Marca del sitio -->
+                    <a class="navbar-brand" href="/">Practica01 - Árboles</a>
+                </div>
+            </nav>
+
+            <div class="container">
+        <h1>Listado de Árboles</h1>
+        <div class="row">
+            
+            
+            <div th:each="arbol : ${arboles}" class="col-md-4">
+                <div class="card">
+                    <img th:src="${arbol.imagenUrl}" class="card-img-top" alt="Imagen del árbol">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${arbol.nombre}"></h5>
+                        <p class="card-text" th:text="${arbol.descripcion}"></p>
+                        <a th:href="@{/arboles/editar/{id}(id=${arbol.id})}" class="btn btn-primary">Editar</a>
+                        <a th:href="@{/arboles/eliminar/{id}(id=${arbol.id})}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <a href="Arboles.html" class="btn btn-success">Agregar Nuevo Árbol</a>
+        
+            
+            
+
+    </div>
+            
+     
+
+        </header>
+
+        
+
+
+
+
+        <footer th:fragment="footer" class="footer mt-5">
+            <div class="container text-center">
+                <hr>
+                    <p>&copy; 2024 Universidad Fidélitas </p>
+            </div>
+        </footer>
+    </body>
+</html>
